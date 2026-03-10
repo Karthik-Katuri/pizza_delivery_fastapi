@@ -20,4 +20,5 @@ dependencies = [
     "utils>=1.0.2",
     "uvicorn>=0.30.0",
     "werkzeug>=3.1.5",
+    "black>=26.3.0",
 ]

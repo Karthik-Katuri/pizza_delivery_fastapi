@@ -18,9 +18,9 @@ class SignUpModel(BaseModel):
                 "email": "john@email.com",
                 "password": "password",
                 "is_staff": False,
-                "is_active": True
+                "is_active": True,
             }
-        }
+        },
     )
 
 
@@ -35,12 +35,7 @@ class OrderModel(BaseModel):
 
     model_config = ConfigDict(
         from_attributes=True,
-        json_schema_extra={
-            "example": {
-                "quantity": 2,
-                "pizza_size": "LARGE"
-            }
-        }
+        json_schema_extra={"example": {"quantity": 2, "pizza_size": "LARGE"}},
     )
 
 
@@ -49,11 +44,7 @@ class ApproveModel(BaseModel):
 
     model_config = ConfigDict(
         from_attributes=True,
-        json_schema_extra={
-            "example": {
-                "order_status": "DELIVERED"
-            }
-        }
+        json_schema_extra={"example": {"order_status": "DELIVERED"}},
     )
 
 
