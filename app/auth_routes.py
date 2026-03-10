@@ -3,11 +3,10 @@ from app.database import Session
 from app.schemas import SignUpModel, TokenResponse
 from app.models import User
 from app.security import hash_password, verify_password, create_access_token
-from app.dependencies import get_current_user,get_db
+from app.dependencies import get_current_user, get_db
 from fastapi.security import OAuth2PasswordRequestForm
 
 auth_router = APIRouter(prefix="/auth", tags=["auth"])
-
 
 
 @auth_router.post(
@@ -39,8 +38,7 @@ def signup(user: SignUpModel, db=Depends(get_db)):
 
 @auth_router.post("/login", response_model=TokenResponse)
 def login(
-    form_data: OAuth2PasswordRequestForm = Depends(),
-    db: Session = Depends(get_db)
+    form_data: OAuth2PasswordRequestForm = Depends(), db: Session = Depends(get_db)
 ):
     db_user = db.query(User).filter(User.username == form_data.username).first()
 

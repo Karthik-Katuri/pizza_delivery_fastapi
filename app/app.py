@@ -8,8 +8,6 @@ app.include_router(auth_router)
 app.include_router(order_router)
 
 
-
-
 @app.get("/hello")
 async def hello_world(name: str):
     return {"message": f"hello {name}"}
